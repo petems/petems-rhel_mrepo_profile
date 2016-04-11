@@ -1,11 +1,12 @@
-class rhel_mrepo_profile::repo_mirror::centos(
+# Mirror Oracle Repos
+class rhel_mrepo_profiles::repo_mirror::oracle(
   $download_isos = false,
 )
 {
 
-  require rhel_mrepo_profile
+  require rhel_mrepo_profiles
 
-  $mirror_root    = $rhel_mrepo_profile::mirror_root
+  $mirror_root    = $rhel_mrepo_profiles::mirror_root
 
   $oracle_6_iso    = 'http://ftp.linux.org.uk/pub/distributions/oracle/OL6/U7/x86_64/'
   $oracle_7_iso    = 'http://ftp.linux.org.uk/pub/distributions/enterprise/OL7/u2/x86_64/'

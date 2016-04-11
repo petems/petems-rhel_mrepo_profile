@@ -9,4 +9,4 @@
 # Learn more about module testing here:
 # http://docs.puppetlabs.com/guides/tests_smoke.html
 #
-include ::rhel_mrepo_profile
+include ::rhel_mrepo_profiles

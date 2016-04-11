@@ -1,8 +1,9 @@
-class rhel_mrepo_profile::repo_mirror::epel {
+# Mirror EPEL Repos
+class rhel_mrepo_profiles::repo_mirror::epel {
 
-  require rhel_mrepo_profile
+  require rhel_mrepo_profiles
 
-  $mirror_root      = $rhel_mrepo_profile::mirror_root
+  $mirror_root      = $rhel_mrepo_profiles::mirror_root
 
   $epel_mirror      = 'http://ftp.osuosl.org'
 
@@ -13,7 +14,7 @@ class rhel_mrepo_profile::repo_mirror::epel {
   # EPEL 7
   ##############################################################################
 
-  mrepo::repo { 'epel7-x86_64':
+  mrepo::repo { 'epel-7-x86_64':
     ensure    => present,
     repotitle => 'EPEL $release ($arch) Latest',
     arch      => 'x86_64',
@@ -29,7 +30,7 @@ class rhel_mrepo_profile::repo_mirror::epel {
   # EPEL 6
   ##############################################################################
 
-  mrepo::repo { 'epel6-x86_64':
+  mrepo::repo { 'epel-6-x86_64':
     ensure    => present,
     repotitle => 'EPEL $release ($arch) Latest',
     arch      => 'x86_64',

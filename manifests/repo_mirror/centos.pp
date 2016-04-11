@@ -1,18 +1,19 @@
-class rhel_mrepo_profile::repo_mirror::centos(
+# Mirror CentOS Repos
+class rhel_mrepo_profiles::repo_mirror::centos(
   $download_isos = false,
 )
 {
 
-  require rhel_mrepo_profile
+  require rhel_mrepo_profiles
 
   $centos_mirror  = 'http://centos.osuosl.org'
   $vault_mirror   = 'http://vault.centos.org'
 
-  $mirror_root    = $rhel_mrepo_profile::mirror_root
+  $mirror_root    = $rhel_mrepo_profiles::mirror_root
 
   $staging_target = "${mirror_root}/iso"
 
-  file {$staging_target:
+  file { $staging_target:
     ensure => directory,
     owner  => apache,
     group  => apache,

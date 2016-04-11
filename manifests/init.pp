@@ -1,4 +1,5 @@
-class rhel_mrepo_profile(
+# Install MRepo
+class rhel_mrepo_profiles(
   $mirror_root   = '/srv/mrepo'
 ) {
 
@@ -9,11 +10,20 @@ class rhel_mrepo_profile(
     mode  => '0755',
   }
 
-  class { 'mrepo::params':
-    src_root           => $mirror_root,
-    www_root           => "${mirror_root}/www",
-    user               => 'root',
-    group              => 'root',
+  class { '::mrepo::params':
+    source     => 'git', # No mrepo el7 package, easier to just clone
+    ensure_src => 'present', # latest commit as of 11/Apr/16
+    src_root   => $mirror_root,
+    www_root   => "${mirror_root}/www",
+    user       => 'root',
+    group      => 'root',
   }
+
+  include ::git
+  include ::mrepo
+
+  ensure_packages('make')
+
+  Package['make'] -> Class['::git'] -> Class['::mrepo']
 
 }
