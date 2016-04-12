@@ -1,6 +1,7 @@
 # Install MRepo
 class rhel_mrepo_profiles(
-  $mirror_root   = '/srv/mrepo'
+  $mirror_root   = '/srv/mrepo',
+  $source        = 'git',
 ) {
 
   class { '::staging':
@@ -11,7 +12,7 @@ class rhel_mrepo_profiles(
   }
 
   class { '::mrepo::params':
-    source     => 'git', # No mrepo el7 package, easier to just clone
+    source     => $source, # No mrepo el7 package, easier to just clone, specify package on RHEL 6
     ensure_src => 'present', # latest commit as of 11/Apr/16
     src_root   => $mirror_root,
     www_root   => "${mirror_root}/www",
