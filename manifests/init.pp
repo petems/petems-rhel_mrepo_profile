@@ -2,6 +2,7 @@
 class rhel_mrepo_profiles(
   $mirror_root   = '/srv/mrepo',
   $source        = 'git',
+  $port          = '80',
 ) {
 
   class { '::staging':
@@ -18,6 +19,7 @@ class rhel_mrepo_profiles(
     www_root   => "${mirror_root}/www",
     user       => 'root',
     group      => 'root',
+    port       => $port,
   }
 
   include ::git
