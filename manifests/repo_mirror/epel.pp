@@ -7,15 +7,6 @@ class rhel_mrepo_profiles::repo_mirror::epel {
 
   $epel_mirror      = 'http://ftp.osuosl.org'
 
-  $staging_target   = "${mirror_root}/iso"
-
-  file { $staging_target:
-    ensure => directory,
-    owner  => apache,
-    group  => apache,
-    mode   => '0755',
-  }
-
   $epel_url         = "${epel_mirror}/pub/fedora-epel/\$release/\$arch/"
 
   ##############################################################################

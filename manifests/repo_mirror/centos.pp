@@ -11,15 +11,6 @@ class rhel_mrepo_profiles::repo_mirror::centos(
 
   $mirror_root    = $rhel_mrepo_profiles::mirror_root
 
-  $staging_target = "${mirror_root}/iso"
-
-  file { $staging_target:
-    ensure => directory,
-    owner  => apache,
-    group  => apache,
-    mode   => '0755',
-  }
-
   $repo_url       = "${centos_mirror}/\$release/\$repo/\$arch/"
   $vault_url      = "${vault_mirror}/\$release/\$repo/\$arch/"
 

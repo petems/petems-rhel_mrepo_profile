@@ -12,15 +12,6 @@ class rhel_mrepo_profiles::repo_mirror::oracle(
   $oracle_7_iso    = 'http://ftp.linux.org.uk/pub/distributions/enterprise/OL7/u2/x86_64'
   $oracle_mirror   = 'public-yum.oracle.com'
 
-  $staging_target       = "${mirror_root}/iso"
-
-  file { $staging_target:
-    ensure => directory,
-    owner  => apache,
-    group  => apache,
-    mode   => '0755',
-  }
-
   $ol6_repo_url         = "reposync://${oracle_mirror}/repo/OracleLinux/OL6/\$release/\$repo/\$arch/"
   $ol6_uek_repo_url     = "reposync://${oracle_mirror}/repo/OracleLinux/OL6/UEK/latest/\$arch/"
   $ol7_repo_url         = "reposync://${oracle_mirror}/repo/OracleLinux/OL7/\$repo/latest/\$arch/"

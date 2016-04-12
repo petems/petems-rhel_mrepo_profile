@@ -5,11 +5,20 @@ class rhel_mrepo_profiles(
   $port          = '80',
 ) {
 
+  $staging_target = "${mirror_root}/iso"
+
   class { '::staging':
     path  => '/opt/staging',
     owner => 'root',
     group => 'root',
     mode  => '0755',
+  }
+
+  file { $staging_target:
+    ensure => directory,
+    owner  => apache,
+    group  => apache,
+    mode   => '0755',
   }
 
   class { '::mrepo::params':
