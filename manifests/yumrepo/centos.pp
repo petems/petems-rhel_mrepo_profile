@@ -6,7 +6,7 @@ class rhel_mrepo_profiles::yumrepo::centos
 {
 
   yumrepo { 'centos-base':
-    baseurl  => "http://${::fqdn}/centos-${::operatingsystemmajrelease}-${::architecture}/RPMS.os",
+    baseurl  => "http://${mrepo_master}/centos-${::operatingsystemmajrelease}-${::architecture}/RPMS.os",
     descr    => "CentOS ${::operatingsystemmajrelease} - base",
     enabled  => 1,
     gpgcheck => 0,
@@ -14,7 +14,7 @@ class rhel_mrepo_profiles::yumrepo::centos
   }
 
   yumrepo { 'centos-updates':
-    baseurl  => "http://${::fqdn}/centos-${::operatingsystemmajrelease}-${::architecture}/RPMS.updates",
+    baseurl  => "http://${mrepo_master}/centos-${::operatingsystemmajrelease}-${::architecture}/RPMS.updates",
     descr    => "CentOS ${::operatingsystemmajrelease} - updates",
     enabled  => 1,
     gpgcheck => 0,
@@ -22,7 +22,7 @@ class rhel_mrepo_profiles::yumrepo::centos
   }
 
   yumrepo { 'centos-extras':
-    baseurl  => "http://${::fqdn}/centos-${::operatingsystemmajrelease}-${::architecture}/RPMS.extras",
+    baseurl  => "http://${mrepo_master}/centos-${::operatingsystemmajrelease}-${::architecture}/RPMS.extras",
     descr    => "CentOS ${::operatingsystemmajrelease} - extras",
     enabled  => 1,
     gpgcheck => 0,
