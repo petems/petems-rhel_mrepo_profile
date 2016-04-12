@@ -8,8 +8,8 @@ class rhel_mrepo_profiles::repo_mirror::oracle(
 
   $mirror_root    = $rhel_mrepo_profiles::mirror_root
 
-  $oracle_6_iso    = 'http://ftp.linux.org.uk/pub/distributions/oracle/OL6/U7/x86_64/'
-  $oracle_7_iso    = 'http://ftp.linux.org.uk/pub/distributions/enterprise/OL7/u2/x86_64/'
+  $oracle_6_iso    = 'http://ftp.linux.org.uk/pub/distributions/oracle/OL6/U7/x86_64'
+  $oracle_7_iso    = 'http://ftp.linux.org.uk/pub/distributions/enterprise/OL7/u2/x86_64'
   $oracle_mirror   = 'public-yum.oracle.com'
 
   $staging_target       = "${mirror_root}/iso"
