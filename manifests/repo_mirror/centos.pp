@@ -23,7 +23,6 @@ class rhel_mrepo_profiles::repo_mirror::centos(
   $cent7isolatest = '1511'
 
   $cent6latest_iso_x86_64 = "CentOS-${cent6latest}-x86_64-bin-DVD"
-  $cent6latest_iso_i386   = "CentOS-${cent6latest}-i386-bin-DVD"
 
   $cent7latest_iso_x86_64 = "CentOS-7-x86_64-Everything-${cent7isolatest}.iso"
 
@@ -78,31 +77,6 @@ class rhel_mrepo_profiles::repo_mirror::centos(
       updates => $repo_url,
     },
   }
-
-  if $download_isos {
-    mrepo::iso {
-      "${cent6latest_iso_i386}1.iso":
-        source_url => "${centos_mirror}/${cent6latest}/isos/i386",
-        repo       => 'cent6latestserver-i386';
-      "${cent6latest_iso_i386}2.iso":
-        source_url => "${centos_mirror}/${cent6latest}/isos/i386",
-        repo       => 'cent6latestserver-i386';
-    }
-  }
-
-  mrepo::repo { 'cent6latestserver-i386':
-    ensure    => present,
-    repotitle => 'CentOS Linux $release ($arch) LATEST',
-    arch      => 'i386',
-    release   => $cent6latest,
-    iso       => "CentOS-${cent6latest}-i386-bin-DVD?.iso",
-    hour      => 2,
-    urls      => {
-      os      => $repo_url,
-      updates => $repo_url,
-    },
-  }
-
 
   ##############################################################################
   # CentOS static mirrors
