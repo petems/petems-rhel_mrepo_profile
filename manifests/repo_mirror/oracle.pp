@@ -31,7 +31,7 @@ class rhel_mrepo_profiles::repo_mirror::oracle(
 
   if $download_isos {
     mrepo::iso { $oracle7latest_iso_x86_64:
-      source_url => "${oracle_7_iso}/iso",
+      source_url => $oracle_7_iso,
       repo       => 'oracle7latestserver-x86_64';
     }
   }
