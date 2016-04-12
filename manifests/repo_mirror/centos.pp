@@ -33,11 +33,11 @@ class rhel_mrepo_profiles::repo_mirror::centos(
   if $download_isos {
     mrepo::iso { $cent7latest_iso_x86_64:
       source_url => "${centos_mirror}/${cent7latest}/isos/x86_64",
-      repo       => 'cent7latestserver-x86_64';
+      repo       => 'centos-7-x86_64';
     }
   }
 
-  mrepo::repo { 'cent7latestserver-x86_64':
+  mrepo::repo { 'centos-7-x86_64':
     ensure    => present,
     repotitle => 'CentOS $release ($arch)',
     arch      => 'x86_64',
@@ -58,14 +58,14 @@ class rhel_mrepo_profiles::repo_mirror::centos(
     mrepo::iso {
       "${cent6latest_iso_x86_64}1.iso":
         source_url => "${centos_mirror}/${cent6latest}/isos/x86_64",
-        repo       => 'cent6latestserver-x86_64';
+        repo       => 'centos-6-x86_64';
       "${cent6latest_iso_x86_64}2.iso":
         source_url => "${centos_mirror}/${cent6latest}/isos/x86_64",
-        repo       => 'cent6latestserver-x86_64';
+        repo       => 'centos-6-x86_64';
     }
   }
 
-  mrepo::repo { 'cent6latestserver-x86_64':
+  mrepo::repo { 'centos-6-x86_64':
     ensure    => present,
     repotitle => 'CentOS Linux $release ($arch) LATEST',
     arch      => 'x86_64',
