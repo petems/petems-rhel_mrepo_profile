@@ -5,7 +5,7 @@ class rhel_mrepo_profiles::repo_mirror::rpmforge {
 
   $mirror_root      = $rhel_mrepo_profiles::mirror_root
 
-  $rpmforge_mirror  = 'http://apt.sw.be/redhat/'
+  $rpmforge_mirror  = 'http://apt.sw.be/redhat'
 
   $rpmforge_url         = "${rpmforge_mirror}/el\$release/en/\$basearch/rpmforge"
 
