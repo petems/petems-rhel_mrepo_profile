@@ -5,9 +5,9 @@ class rhel_mrepo_profiles::repo_mirror::epel {
 
   $mirror_root      = $rhel_mrepo_profiles::mirror_root
 
-  $epel_mirror      = 'http://ftp.osuosl.org'
+  $epel_mirror      = 'rsync://rsync.mirrorservice.org/dl.fedoraproject.org/pub/'
 
-  $epel_url         = "${epel_mirror}/pub/fedora-epel/\$release/\$arch/"
+  $epel_url         = "${epel_mirror}/\$repo/\$release/\$arch/"
 
   ##############################################################################
   # EPEL 7

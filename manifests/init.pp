@@ -34,7 +34,7 @@ class rhel_mrepo_profiles(
   include ::git
   include ::mrepo
 
-  ensure_packages('make')
+  ensure_packages('make', 'rsync')
 
   Package['make'] -> Class['::git'] -> Class['::mrepo']
 
