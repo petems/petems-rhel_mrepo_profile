@@ -1,6 +1,6 @@
 # Mirror CentOS Repos
 class rhel_mrepo_profiles::repo_mirror::centos(
-  $download_isos = false,
+  $update_schedule = 'never',
 )
 {
 
@@ -42,7 +42,6 @@ class rhel_mrepo_profiles::repo_mirror::centos(
     repotitle => 'CentOS $release ($arch)',
     arch      => 'x86_64',
     release   => $cent7latest,
-    hour      => '4',
     iso       => $cent7latest_iso_x86_64,
     urls      => {
       updates => $repo_url,
@@ -71,7 +70,6 @@ class rhel_mrepo_profiles::repo_mirror::centos(
     arch      => 'x86_64',
     release   => $cent6latest,
     iso       => "CentOS-${cent6latest}-x86_64-bin-DVD?.iso",
-    hour      => 2,
     urls      => {
       os      => $repo_url,
       updates => $repo_url,

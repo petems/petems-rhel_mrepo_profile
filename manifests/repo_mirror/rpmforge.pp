@@ -18,7 +18,7 @@ class rhel_mrepo_profiles::repo_mirror::rpmforge {
     repotitle => 'RHEL $releasever - RPMforge.net - dag',
     arch      => 'x86_64',
     release   => '7',
-    hour      => '4',
+    update    => $update_schedule,
     urls      => {
       rpmforge => $rpmforge_url,
     },
@@ -34,7 +34,7 @@ class rhel_mrepo_profiles::repo_mirror::rpmforge {
     repotitle => 'RHEL $releasever - RPMforge.net - dag',
     arch      => 'x86_64',
     release   => '6',
-    hour      => '4',
+    update    => $update_schedule,
     urls      => {
       rpmforge => $rpmforge_url,
     },

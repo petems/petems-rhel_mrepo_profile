@@ -1,5 +1,6 @@
 # Mirror Oracle Repos
 class rhel_mrepo_profiles::repo_mirror::oracle(
+  $update_schedule = 'never',
   $download_isos = false,
 )
 {
@@ -41,7 +42,7 @@ class rhel_mrepo_profiles::repo_mirror::oracle(
     repotitle => 'Oracle Linux $release ($arch) LATEST',
     arch      => 'x86_64',
     release   => '7',
-    update    => 'weekly',
+    update    => $update_schedule,
     iso       => $oracle7latest_iso_x86_64,
     urls      => {
       latest   => $ol7_latest_repo_url,
@@ -67,7 +68,7 @@ class rhel_mrepo_profiles::repo_mirror::oracle(
     arch      => 'x86_64',
     release   => '7',
     iso       => $oracle6latest_iso_x86_64,
-    hour      => '3',
+    update    => $update_schedule,
     urls      => {
       base => $ol6_repo_url,
       uek  => $ol6_uek_repo_url,

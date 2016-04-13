@@ -1,5 +1,8 @@
 # Mirror EPEL Repos
-class rhel_mrepo_profiles::repo_mirror::epel {
+class rhel_mrepo_profiles::repo_mirror::epel(
+  $update_schedule = 'never',
+)
+{
 
   require rhel_mrepo_profiles
 
@@ -18,7 +21,7 @@ class rhel_mrepo_profiles::repo_mirror::epel {
     repotitle => 'EPEL $release ($arch) Latest',
     arch      => 'x86_64',
     release   => '7',
-    hour      => '4',
+    update    => $update_schedule,
     urls      => {
       epel => $epel_url,
     },
@@ -34,7 +37,7 @@ class rhel_mrepo_profiles::repo_mirror::epel {
     repotitle => 'EPEL $release ($arch) Latest',
     arch      => 'x86_64',
     release   => '6',
-    hour      => '4',
+    update    => $update_schedule,
     urls      => {
       epel => $epel_url,
     },
