@@ -106,7 +106,6 @@ class rhel_mrepo_profiles::repo_mirror::centos(
     repotitle => 'CentOS $release ($arch)',
     arch      => 'x86_64',
     release   => '7.0.1406',
-    update    => 'never',
     iso       => $cent70_iso_x86_64,
     urls      => {
       updates => $vault_url,
