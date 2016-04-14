@@ -40,6 +40,7 @@ class rhel_mrepo_profiles::repo_mirror::centos(
 
   mrepo::repo { 'centos-7-x86_64':
     ensure    => present,
+    update    => $update_schedule,
     repotitle => 'CentOS $release ($arch)',
     arch      => 'x86_64',
     release   => $cent7latest,
@@ -67,6 +68,7 @@ class rhel_mrepo_profiles::repo_mirror::centos(
 
   mrepo::repo { 'centos-6-x86_64':
     ensure    => present,
+    update    => $update_schedule,
     repotitle => 'CentOS Linux $release ($arch) LATEST',
     arch      => 'x86_64',
     release   => $cent6latest,
@@ -100,6 +102,7 @@ class rhel_mrepo_profiles::repo_mirror::centos(
 
   mrepo::repo { 'cent70server-x86_64':
     ensure    => present,
+    update    => $update_schedule,
     repotitle => 'CentOS $release ($arch)',
     arch      => 'x86_64',
     release   => '7.0.1406',
