@@ -11,7 +11,7 @@ class rhel_mrepo_profiles::repo_mirror::epel(
 
   $epel_mirror      = "${protocol}://rsync.osuosl.org/pub/fedora-epel"
 
-  $epel_url         = "${epel_mirror}/pub/fedora-epel/\$release/\$arch/"
+  $epel_url         = "${epel_mirror}/\$release/\$arch/"
 
   ##############################################################################
   # EPEL 7
