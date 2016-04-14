@@ -1,6 +1,7 @@
 # Mirror EPEL Repos
 class rhel_mrepo_profiles::repo_mirror::epel(
   $update_schedule = 'never',
+  $protocol = 'http',
 )
 {
 
@@ -8,7 +9,7 @@ class rhel_mrepo_profiles::repo_mirror::epel(
 
   $mirror_root      = $rhel_mrepo_profiles::mirror_root
 
-  $epel_mirror      = 'rsync://rsync.mirrorservice.org/dl.fedoraproject.org/pub/'
+  $epel_mirror      = "${protocol}://rsync.mirrorservice.org/dl.fedoraproject.org/pub"
 
   $epel_url         = "${epel_mirror}/\$repo/\$release/\$arch/"
 

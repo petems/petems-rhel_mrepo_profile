@@ -2,6 +2,7 @@
 class rhel_mrepo_profiles::repo_mirror::oracle(
   $update_schedule = 'never',
   $download_isos = false,
+  $protocol = 'http',
 )
 {
 
