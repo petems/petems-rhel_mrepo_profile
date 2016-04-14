@@ -34,8 +34,11 @@ class rhel_mrepo_profiles(
 
   if $install_local_rpm {
 
+    # Yes, it's bad to put large binaries in modules
+    # But there's no repository with mrepo in it
+    # So it's easier to just do this ;)
     file { '/var/tmp/mrepo-0.8.8-0.pre1.rft.src.rpm':
-      ensure => present,
+      ensure => file,
       source => 'puppet:///modules/rhel_mrepo_profiles/mrepo-0.8.8-0.pre1.rft.src.rpm',
       owner  => '0',
       group  => '0',
@@ -43,8 +46,9 @@ class rhel_mrepo_profiles(
     }
 
     package { 'mrepo':
-      ensure => installed,
-      source => '/var/tmp/mrepo-0.8.8-0.pre1.rft.src.rpm',
+      ensure   => installed,
+      provider => 'rpm',
+      source   => '/var/tmp/mrepo-0.8.8-0.pre1.rft.src.rpm',
     }
 
   }
