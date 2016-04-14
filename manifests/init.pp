@@ -3,6 +3,7 @@ class rhel_mrepo_profiles(
   $mirror_root   = '/srv/mrepo',
   $source        = 'git',
   $port          = '80',
+  $install_local_rpm = false,
 ) {
 
   $staging_target = "${mirror_root}/iso"
@@ -30,6 +31,24 @@ class rhel_mrepo_profiles(
     group      => 'root',
     port       => $port,
   }
+
+  if $install_local_rpm {
+
+    file { '/var/tmp/mrepo-0.8.8-0.pre1.rft.src.rpm':
+      ensure => present,
+      source => 'puppet:///modules/rhel_mrepo_profiles/mrepo-0.8.8-0.pre1.rft.src.rpm',
+      owner  => '0',
+      group  => '0',
+      mode   => '0755',
+    }
+
+    package { 'mrepo':
+      ensure => installed,
+      source => '/var/tmp/mrepo-0.8.8-0.pre1.rft.src.rpm',
+    }
+
+  }
+
 
   include ::git
   include ::mrepo
