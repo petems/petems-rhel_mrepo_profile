@@ -92,7 +92,7 @@ class rhel_mrepo_profiles::yumrepo::oracle_public
     descr    => 'Oracle Linux $releasever Update 1 installation media copy ($basearch)',
     enabled  => '0',
     gpgcheck => '1',
-    gpgkey   => 'file:///etc/pki/rpm-gpg/RPM-GPG-KEY-oracle'
+    gpgkey   => 'file:///etc/pki/rpm-gpg/RPM-GPG-KEY-oracle',
   }
 
 
