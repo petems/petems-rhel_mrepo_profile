@@ -67,7 +67,7 @@ class rhel_mrepo_profiles::repo_mirror::oracle(
     ensure    => present,
     repotitle => 'Oracle Linux 6 ($arch) LATEST',
     arch      => 'x86_64',
-    release   => '7',
+    release   => '6',
     iso       => $oracle6latest_iso_x86_64,
     update    => $update_schedule,
     urls      => {
