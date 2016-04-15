@@ -3,6 +3,8 @@ class rhel_mrepo_profiles::repo_mirror::oracle(
   $update_schedule = 'never',
   $download_isos = false,
   $protocol = 'http',
+  $oracle_6_update = 'U7',
+  $oracle_7_update = 'U2',
 )
 {
 
@@ -10,8 +12,12 @@ class rhel_mrepo_profiles::repo_mirror::oracle(
 
   $mirror_root    = $rhel_mrepo_profiles::mirror_root
 
-  $oracle_6_iso    = 'http://ftp.linux.org.uk/pub/distributions/oracle/OL6/U7/x86_64'
-  $oracle_7_iso    = 'http://ftp.linux.org.uk/pub/distributions/enterprise/OL7/u2/x86_64'
+  $oracle_6_iso    = "http://ftp.linux.org.uk/pub/distributions/oracle/OL6/${oracle_6_update}/x86_64"
+
+  # Oracle 7 Mirror uses lowercase update string
+  $oracle_7_update_lower = downcase($oracle_7_update)
+
+  $oracle_7_iso    = "http://ftp.linux.org.uk/pub/distributions/enterprise/OL7/${oracle_7_update_lower}/x86_64"
   $oracle_mirror   = 'public-yum.oracle.com'
 
   $ol6_repo_url         = "reposync://${oracle_mirror}/repo/OracleLinux/OL6/\$release/\$repo/\$arch/"
@@ -24,8 +30,8 @@ class rhel_mrepo_profiles::repo_mirror::oracle(
   # Latest Oracle Linux mirrors
   ##############################################################################
 
-  $oracle6latest_iso_x86_64 = 'OracleLinux-R6-U7-Server-x86_64-dvd.iso'
-  $oracle7latest_iso_x86_64 = 'OracleLinux-R7-U2-Server-x86_64-dvd.iso'
+  $oracle6latest_iso_x86_64 = "OracleLinux-R6-${oracle_6_update}-Server-x86_64-dvd.iso"
+  $oracle7latest_iso_x86_64 = "OracleLinux-R7-${oracle_7_update}-Server-x86_64-dvd.iso"
 
   ##############################################################################
   # Oracle Linux 7
