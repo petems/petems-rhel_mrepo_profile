@@ -25,6 +25,7 @@ group :development do
   gem "travis-lint"
   gem "puppet-blacksmith"
   gem "guard-rake"
+  gem "listen", '<= 3.0.6'
 end
 
 group :system_tests do
