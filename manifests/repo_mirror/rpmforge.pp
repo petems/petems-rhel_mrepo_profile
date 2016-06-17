@@ -19,6 +19,7 @@ class rhel_mrepo_profiles::repo_mirror::rpmforge(
     ensure    => present,
     repotitle => 'RHEL $releasever - RPMforge.net - dag',
     arch      => 'x86_64',
+    release   => '7',
     update    => $update_schedule,
     urls      => {
       rpmforge => $rpmforge_url,
