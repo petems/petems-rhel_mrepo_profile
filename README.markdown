@@ -28,7 +28,7 @@ Extremley opinionated way of mirroring RHEL-ish Yum repos:
 
 ```puppet
 include ::rhel_mrepo_profiles
-include ::rhel_mrepo_profiles::epel
+include ::rhel_mrepo_profiles::repo_mirror::epel
 ```
 
 ## Limitations
