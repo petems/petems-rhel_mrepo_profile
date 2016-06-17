@@ -1,9 +1,10 @@
 # Install MRepo
 class rhel_mrepo_profiles(
-  $mirror_root   = '/srv/mrepo',
-  $source        = 'git',
-  $port          = '80',
+  $mirror_root       = '/srv/mrepo',
+  $source            = 'git',
+  $port              = '80',
   $install_local_rpm = false,
+  $git_proto         = 'git',
 ) {
 
   $staging_target = "${mirror_root}/iso"
@@ -30,6 +31,7 @@ class rhel_mrepo_profiles(
     user       => 'root',
     group      => 'root',
     port       => $port,
+    git_proto  => $git_proto,
   }
 
   if $install_local_rpm {
