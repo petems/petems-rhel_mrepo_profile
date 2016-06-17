@@ -1,10 +1,11 @@
 # Mirror Oracle Repos
 class rhel_mrepo_profiles::repo_mirror::oracle(
-  $update_schedule = 'never',
-  $download_isos = false,
-  $protocol = 'http',
-  $oracle_6_update = 'U7',
-  $oracle_7_update = 'U2',
+  $update_schedule      = 'never',
+  $download_isos        = false,
+  $iso_download_timeout = 1800,
+  $protocol             = 'http',
+  $oracle_6_update      = 'U7',
+  $oracle_7_update      = 'U2',
 )
 {
 
@@ -38,6 +39,9 @@ class rhel_mrepo_profiles::repo_mirror::oracle(
   ##############################################################################
 
   if $download_isos {
+    Staging::File {
+      timeout => $iso_download_timeout,
+    }
     mrepo::iso { $oracle7latest_iso_x86_64:
       source_url => $oracle_7_iso,
       repo       => 'oracle7latestserver-x86_64';
