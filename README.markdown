@@ -1,4 +1,5 @@
 # rhel_mrepo_profiles
+[![Build Status](https://travis-ci.org/petems/petems-rhel_mrepo_profiles.svg?branch=master)](https://travis-ci.org/petems/petems-rhel_mrepo_profiles)
 
 #### Table of Contents
 
