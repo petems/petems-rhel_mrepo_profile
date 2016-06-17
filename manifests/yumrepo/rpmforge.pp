@@ -2,6 +2,7 @@
 class rhel_mrepo_profiles::yumrepo::rpmforge
 (
   $mrepo_master,
+  $mrepo_port = '80',
 )
 {
 
