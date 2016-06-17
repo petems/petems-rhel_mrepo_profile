@@ -12,12 +12,12 @@ class rhel_mrepo_profiles::repo_mirror::oracle(
 
   $mirror_root    = $rhel_mrepo_profiles::mirror_root
 
-  $oracle_6_iso    = "http://ftp.linux.org.uk/pub/distributions/oracle/OL6/${oracle_6_update}/x86_64"
+  $oracle_6_iso    = "http://ftp.linux.org.uk/pub/distributions/EnterpriseLinux/OL6/${oracle_6_update}/x86_64"
 
   # Oracle 7 Mirror uses lowercase update string
   $oracle_7_update_lower = downcase($oracle_7_update)
 
-  $oracle_7_iso    = "http://ftp.linux.org.uk/pub/distributions/enterprise/OL7/${oracle_7_update_lower}/x86_64"
+  $oracle_7_iso    = "http://ftp.linux.org.uk/pub/distributions/EnterpriseLinux/OL7/${oracle_7_update_lower}/x86_64"
   $oracle_mirror   = 'public-yum.oracle.com'
 
   $ol6_repo_url         = "reposync://${oracle_mirror}/repo/OracleLinux/OL6/\$release/\$repo/\$arch/"
