@@ -1,5 +1,5 @@
 # Add Yumrepo for Oracle Linux Mirror
-class rhel_mrepo_profiles::yumrepo::oracle
+class rhel_mrepo_profiles::yumrepo::rpmforge
 (
   $mrepo_master,
 )
