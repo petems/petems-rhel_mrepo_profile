@@ -15,6 +15,8 @@ Extremley opinionated way of mirroring RHEL-ish Yum repos:
 * EPEL
 * CentOS
 * Oracle Linux
+* Puppet Repos (https://yum.puppetlabs.com/el/)
+* RPMForge
 
 ## Setup
 
