@@ -3,7 +3,7 @@ class rhel_mrepo_profiles::repo_mirror::rpmforge(
   $update_schedule = 'never',
 ) {
 
-  require rhel_mrepo_profiles
+  require ::rhel_mrepo_profiles
 
   $mirror_root      = $rhel_mrepo_profiles::mirror_root
 
