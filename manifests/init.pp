@@ -59,8 +59,9 @@ class rhel_mrepo_profiles(
   include ::git
   include ::mrepo
 
-  ensure_packages(['make', 'rsync'])
+  ensure_packages(['make', 'rsync', 'yum-utils'])
 
   Package['make'] -> Class['::git'] -> Class['::mrepo']
+  Package['yum-utils'] -> Class['::mrepo']
 
 }
