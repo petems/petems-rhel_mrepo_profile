@@ -4,7 +4,7 @@ class rhel_mrepo_profiles::repo_mirror::centos_no_iso(
 )
 {
 
-  require rhel_mrepo_profiles
+  require ::rhel_mrepo_profiles
 
   $mirror_root    = $rhel_mrepo_profiles::mirror_root
 

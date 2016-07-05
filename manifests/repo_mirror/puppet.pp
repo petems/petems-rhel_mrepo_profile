@@ -5,7 +5,7 @@ class rhel_mrepo_profiles::repo_mirror::puppet(
   $versions = ['5','6','7']
 )
 {
-  require rhel_mrepo_profiles
+  require ::rhel_mrepo_profiles
 
   $puppet_mirror  = "${protocol}://yum.puppetlabs.com/el"
 

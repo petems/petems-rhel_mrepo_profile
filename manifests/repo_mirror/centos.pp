@@ -6,7 +6,7 @@ class rhel_mrepo_profiles::repo_mirror::centos(
 )
 {
 
-  require rhel_mrepo_profiles
+  require ::rhel_mrepo_profiles
 
   $centos_mirror  = "${protocol}://mirrors.kernel.org/centos"
   $vault_mirror   = 'http://mirror.nsc.liu.se/centos-store'

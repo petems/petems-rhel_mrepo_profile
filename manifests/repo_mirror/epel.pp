@@ -5,7 +5,7 @@ class rhel_mrepo_profiles::repo_mirror::epel(
 )
 {
 
-  require rhel_mrepo_profiles
+  require ::rhel_mrepo_profiles
 
   $mirror_root      = $rhel_mrepo_profiles::mirror_root
 
