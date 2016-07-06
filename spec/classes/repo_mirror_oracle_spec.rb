@@ -40,24 +40,46 @@ describe 'rhel_mrepo_profiles::repo_mirror::oracle' do
         end
       end
 
-      context "on #{os} with params" do
+      context "on #{os} with the download_iso parameter" do
         let(:facts) do
           facts
         end
 
         let(:params) {{ 'download_isos' => true }}
 
-        context "rhel_mrepo_profiles::repo_mirror::oracle class without any parameters" do
-          it { is_expected.to compile.with_all_deps }
-        end
-
         context "rhel_mrepo_profiles::repo_mirror::oracle should contain mrepo repos" do
+          it { is_expected.to compile.with_all_deps }
           it { should contain_mrepo__iso('OracleLinux-R6-U7-Server-x86_64-dvd.iso') }
           it { should contain_mrepo__iso('OracleLinux-R7-U2-Server-x86_64-dvd.iso') }
           it { should contain_mrepo__repo('oracle7latestserver-x86_64').with_urls(oracle_7_repo_urls) }
           it { should contain_mrepo__repo('oracle6latestserver-x86_64').with_urls(oracle_6_repo_urls) }
+          it { should contain_staging__file('OracleLinux-R6-U7-Server-x86_64-dvd.iso').with_timeout('1800') }
+        end
+      end
+
+      context "on #{os} with the iso_download_timeout parameter" do
+        let(:facts) do
+          facts
+        end
+
+        let(:params) {
+          {
+            'iso_download_timeout' => '999',
+            'download_isos' => true
+          }
+        }
+
+        context "rhel_mrepo_profiles::repo_mirror::oracle should contain mrepo repos" do
+          it { is_expected.to compile.with_all_deps }
+          it { should contain_mrepo__iso('OracleLinux-R6-U7-Server-x86_64-dvd.iso') }
+          it { should contain_mrepo__iso('OracleLinux-R7-U2-Server-x86_64-dvd.iso') }
+          it { should contain_mrepo__repo('oracle7latestserver-x86_64').with_urls(oracle_7_repo_urls) }
+          it { should contain_mrepo__repo('oracle6latestserver-x86_64').with_urls(oracle_6_repo_urls) }
+          it { should contain_staging__file('OracleLinux-R6-U7-Server-x86_64-dvd.iso').with_timeout('999') }
         end
       end
     end
+
+
   end
 end
